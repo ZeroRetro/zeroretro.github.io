@@ -34,6 +34,13 @@ a:hover { color: white; }
     linear-gradient(160deg, #1c5263, #102b36 72%);
 }
 
+.shield-hero {
+  min-height: 31rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(244, 188, 84, .24), transparent 27rem),
+    linear-gradient(160deg, #3b2638, #132b36 72%);
+}
+
 .studio-kicker {
   margin: 0;
   color: var(--accent);
@@ -96,6 +103,7 @@ h2 { margin-top: 2rem; color: var(--accent); }
 .game-card > img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
 .game-card-content { padding: 1.2rem; }
 .game-card-content h3 { margin: 0; color: var(--accent); font-size: 1.4rem; }
+.game-card.no-art { display: flex; align-items: stretch; background: linear-gradient(145deg, #3b2638, var(--card)); }
 
 .policy { max-width: 52rem; }
 .policy h1 { margin-bottom: .2rem; }
