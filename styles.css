@@ -1,0 +1,92 @@
+:root {
+  color-scheme: dark;
+  --ink: #f2fbfd;
+  --muted: #b9d2d8;
+  --sky: #48c9e7;
+  --deep: #102b36;
+  --card: #183f4c;
+  --accent: #f4bc54;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--deep); }
+
+body {
+  margin: 0;
+  background: linear-gradient(#163947, #102b36 58rem);
+  color: var(--ink);
+  font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a { color: #a9efff; }
+a:hover { color: white; }
+
+.hero {
+  min-height: 38rem;
+  background: linear-gradient(180deg, rgba(8, 38, 48, .06), rgba(8, 38, 48, .8)), url("assets/another-2d-platformer/a2dp_title.png") center / cover;
+}
+
+.compact-header { background: #163947; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.nav a { color: white; font-weight: 700; text-decoration: none; }
+.nav .brand { color: var(--accent); letter-spacing: .03em; }
+
+.hero-content {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 60rem;
+  margin: 4.5rem auto 0;
+  padding: 0 1.5rem 4rem;
+  text-align: center;
+}
+
+.title-art { width: min(42rem, 100%); filter: drop-shadow(0 .25rem .1rem rgba(0,0,0,.55)); }
+.eyebrow { color: var(--muted); font-size: 1.2rem; font-weight: 700; }
+
+.button {
+  display: inline-block;
+  padding: .7rem 1.2rem;
+  border-radius: .45rem;
+  background: var(--accent);
+  color: #162a32;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.button:hover { background: #ffd575; color: #162a32; }
+
+.section { width: min(72rem, calc(100% - 3rem)); margin: 0 auto; padding: 3.5rem 0; }
+.intro { max-width: 50rem; text-align: center; }
+h1, h2 { line-height: 1.15; }
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+h2 { margin-top: 2rem; color: var(--accent); }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; }
+.gallery img { width: 100%; border: .25rem solid var(--card); border-radius: .45rem; box-shadow: 0 .5rem 1.4rem rgba(0,0,0,.3); }
+
+.policy { max-width: 52rem; }
+.policy h1 { margin-bottom: .2rem; }
+.updated { color: var(--muted); margin-top: 0; }
+
+footer { display: flex; justify-content: center; align-items: center; gap: 1.5rem; padding: 2rem 1.5rem; background: #0c2028; color: var(--muted); }
+footer p { margin: 0; }
+
+@media (max-width: 38rem) {
+  .hero { min-height: 31rem; }
+  .hero-content { margin-top: 2.5rem; }
+  .nav { padding-inline: 1rem; }
+  .section { width: min(100% - 2rem, 72rem); }
+  footer { flex-direction: column; gap: .25rem; }
+}
