@@ -27,6 +27,21 @@ a:hover { color: white; }
   background: linear-gradient(180deg, rgba(8, 38, 48, .06), rgba(8, 38, 48, .8)), url("assets/another-2d-platformer/a2dp_title.png") center / cover;
 }
 
+.studio-hero {
+  min-height: 31rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(72, 201, 231, .35), transparent 31rem),
+    linear-gradient(160deg, #1c5263, #102b36 72%);
+}
+
+.studio-kicker {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
 .compact-header { background: #163947; }
 
 .nav {
@@ -75,6 +90,12 @@ h2 { margin-top: 2rem; color: var(--accent); }
 
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; }
 .gallery img { width: 100%; border: .25rem solid var(--card); border-radius: .45rem; box-shadow: 0 .5rem 1.4rem rgba(0,0,0,.3); }
+
+.game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 24rem)); justify-content: center; gap: 1.5rem; margin-top: 2rem; }
+.game-card { overflow: hidden; border: .25rem solid var(--card); border-radius: .5rem; background: var(--card); text-align: left; box-shadow: 0 .5rem 1.4rem rgba(0,0,0,.3); }
+.game-card > img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
+.game-card-content { padding: 1.2rem; }
+.game-card-content h3 { margin: 0; color: var(--accent); font-size: 1.4rem; }
 
 .policy { max-width: 52rem; }
 .policy h1 { margin-bottom: .2rem; }
