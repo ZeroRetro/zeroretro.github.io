@@ -10,9 +10,12 @@
 
 * { box-sizing: border-box; }
 
-html { background: var(--deep); }
+html { min-height: 100%; background: var(--deep); }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   background: linear-gradient(#163947, #102b36 58rem);
   color: var(--ink);
@@ -22,8 +25,11 @@ body {
 a { color: #a9efff; }
 a:hover { color: white; }
 
+main { flex: 1 0 auto; }
+
 .hero {
   min-height: 38rem;
+  padding-top: 5.25rem;
   background: linear-gradient(180deg, rgba(8, 38, 48, .06), rgba(8, 38, 48, .8)), url("assets/another-2d-platformer/a2dp_title.png") center / cover;
 }
 
@@ -34,11 +40,11 @@ a:hover { color: white; }
     linear-gradient(160deg, #1c5263, #102b36 72%);
 }
 
-.shield-hero {
+.game-hero {
   min-height: 31rem;
   background:
-    radial-gradient(circle at 50% 20%, rgba(244, 188, 84, .24), transparent 27rem),
-    linear-gradient(160deg, #3b2638, #132b36 72%);
+    radial-gradient(circle at 50% 12%, rgba(72, 201, 231, .22), transparent 28rem),
+    linear-gradient(160deg, #1c5263, #102b36 72%);
 }
 
 .studio-kicker {
@@ -49,16 +55,22 @@ a:hover { color: white; }
   text-transform: uppercase;
 }
 
-.compact-header { background: #163947; }
+.compact-header { min-height: 5.25rem; background: #163947; }
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  max-width: 72rem;
-  margin: 0 auto;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  width: 100%;
+  min-height: 5.25rem;
   padding: 1.25rem 1.5rem;
+  background: rgba(12, 32, 40, .94);
+  border-bottom: 1px solid rgba(169, 239, 255, .16);
+  backdrop-filter: blur(.75rem);
 }
 
 .nav a { color: white; font-weight: 700; text-decoration: none; }
@@ -69,7 +81,7 @@ a:hover { color: white; }
   justify-items: center;
   gap: 1rem;
   max-width: 60rem;
-  margin: 4.5rem auto 0;
+  margin: 2.25rem auto 0;
   padding: 0 1.5rem 4rem;
   text-align: center;
 }
@@ -104,23 +116,26 @@ h2 { margin-top: 2rem; color: var(--accent); }
 .portrait-gallery { grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem)); justify-content: center; }
 
 .game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 24rem)); justify-content: center; gap: 1.5rem; margin-top: 2rem; }
-.game-card { overflow: hidden; border: .25rem solid var(--card); border-radius: .5rem; background: var(--card); text-align: left; box-shadow: 0 .5rem 1.4rem rgba(0,0,0,.3); }
+.game-card { overflow: hidden; display: flex; flex-direction: column; border: .25rem solid var(--card); border-radius: .5rem; background: var(--card); color: var(--ink); text-align: left; text-decoration: none; box-shadow: 0 .5rem 1.4rem rgba(0,0,0,.3); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.game-card:hover { border-color: var(--accent); color: var(--ink); box-shadow: 0 .8rem 1.8rem rgba(0,0,0,.4); transform: translateY(-.2rem); }
+.game-card:focus-visible { outline: .2rem solid var(--accent); outline-offset: .25rem; }
 .game-card > img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
-.game-card-content { padding: 1.2rem; }
+.game-card-content { flex: 1; padding: 1.2rem; }
 .game-card-content h3 { margin: 0; color: var(--accent); font-size: 1.4rem; }
-.game-card.no-art { display: flex; align-items: stretch; background: linear-gradient(145deg, #3b2638, var(--card)); }
 
 .policy { max-width: 52rem; }
 .policy h1 { margin-bottom: .2rem; }
 .updated { color: var(--muted); margin-top: 0; }
 
-footer { display: flex; justify-content: center; align-items: center; gap: 1.5rem; padding: 2rem 1.5rem; background: #0c2028; color: var(--muted); }
+footer { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; gap: 1.5rem; padding: 2rem 1.5rem; background: #0c2028; color: var(--muted); }
 footer p { margin: 0; }
 
 @media (max-width: 38rem) {
-  .hero { min-height: 31rem; }
-  .hero-content { margin-top: 2.5rem; }
-  .nav { padding-inline: 1rem; }
+  .hero { min-height: 31rem; padding-top: 8rem; }
+  .compact-header { min-height: 8rem; }
+  .hero-content { margin-top: 1.5rem; }
+  .nav { min-height: 0; flex-wrap: wrap; justify-content: center; gap: .25rem .9rem; padding: .7rem 1rem; font-size: .88rem; }
+  .nav .brand { width: 100%; text-align: center; }
   .section { width: min(100% - 2rem, 72rem); }
   footer { flex-direction: column; gap: .25rem; }
 }
